@@ -7,7 +7,7 @@ on:
 
 jobs:
   export-stl:
-    runs-on: ubuntu-latest
+    runs-on: amrit3701/freecad-cli:latest
 
     steps:
     - name: Checkout repository
@@ -18,11 +18,11 @@ jobs:
       with:
         python-version: '3.9'
 
-    - name: Install FreeCAD
-      run: |
-        sudo add-apt-repository ppa:freecad-maintainers/freecad-stable -y
-        sudo apt-get update
-        sudo apt-get install freecad -y
+#    - name: Install FreeCAD
+#      run: |
+#        sudo add-apt-repository ppa:freecad-maintainers/freecad-stable -y
+#        sudo apt-get update
+#        sudo apt-get install freecad -y
 
     - name: Run STL export script
       run: |
