@@ -8,7 +8,7 @@ on:
 jobs:
   export-stl:
     runs-on: ubuntu-latest
-
+    
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -20,9 +20,9 @@ jobs:
 
     - name: Install FreeCAD
       run: |
-        sudo add-apt-repository ppa:freecad-maintainers/freecad-stable -y
-        sudo apt-get update
-        sudo apt-get install freecad -y
+         sudo add-apt-repository ppa:freecad-maintainers/freecad-stable -y
+         sudo apt-get update
+         sudo apt-get install freecad -y
 
     - name: Run STL export script
       run: |
