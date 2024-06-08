@@ -42,4 +42,4 @@ for filename in os.listdir(components_dir):
     FreeCAD.closeDocument(doc.Name)
 
 print("Exporting complete.")
-sys.exit()
+sys.exit(0)
