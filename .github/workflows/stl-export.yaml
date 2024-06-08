@@ -29,11 +29,14 @@ jobs:
         /usr/bin/freecadcmd lifecycle/stl-export.py
     
     - name: Archive STL files
+      if: always()
       run: |
-        zip -r $(basename $GITHUB_REPOSITORY)-stl.zip 3dmodel/stl
-  
+        zip -r stl-files.zip 3dmodel/stl
+        ls -l stl-files.zip
+
     - name: Upload STL artifact
+      if: always()
       uses: actions/upload-artifact@v3
       with:
-        name: $(basename $GITHUB_REPOSITORY)-stl
-        path: $(basename $GITHUB_REPOSITORY)-stl.zip
+        name: stl-files
+        path: stl-files.zip
