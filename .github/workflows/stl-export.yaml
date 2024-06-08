@@ -7,7 +7,9 @@ on:
 
 jobs:
   export-stl:
-    runs-on: amrit3701/freecad-cli
+    runs-on: ubuntu-latest
+    container:
+      image: amrit3701/freecad-cli
 
     steps:
     - name: Checkout repository
