@@ -12869,12 +12869,12 @@
 	(footprint "Chof747 Footprints:1TS003B-2500-3500A-CT (SMD Right Angle Tactile Switch)"
 		(layer "F.Cu")
 		(uuid "b1b40ad1-0bce-41da-8dd7-203c6c51d152")
-		(at 136.7 39.474656)
+		(at 136.7 39.924656)
 		(property "Reference" "SW2"
 			(at 4.35 -0.85 0)
 			(unlocked yes)
 			(layer "F.SilkS")
-			(uuid "86f7724a-c78a-4155-978a-b2cd4276e276")
+			(uuid "709ed29b-10b8-4261-9459-bd6244213732")
 			(effects
 				(font
 					(size 1 1)
@@ -12886,7 +12886,7 @@
 			(at 0 5.2 0)
 			(unlocked yes)
 			(layer "F.Fab")
-			(uuid "11d36bcc-2212-4c50-9134-1423e00dcf7d")
+			(uuid "d312693d-9440-48ec-ba05-261414e834e4")
 			(effects
 				(font
 					(size 1 1)
@@ -12899,7 +12899,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "7eb24e99-acd9-4ac2-a3ba-5d748cc54dd4")
+			(uuid "2a064d14-a53d-42ef-a0e7-acc71b2311a5")
 			(effects
 				(font
 					(size 1 1)
@@ -12912,7 +12912,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "247070d2-4350-48dd-b388-feefe9276ffc")
+			(uuid "6928d29b-dc17-4742-ad02-56a5d66a218b")
 			(effects
 				(font
 					(size 1 1)
@@ -12925,7 +12925,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "c2d5888e-ef47-4d21-90da-9e6adcbaef28")
+			(uuid "87bd3432-6fc4-455b-9f1d-41cdfe287d67")
 			(effects
 				(font
 					(size 1 1)
@@ -12945,7 +12945,7 @@
 				(type default)
 			)
 			(layer "F.SilkS")
-			(uuid "fbc9ec74-0b04-4377-bcd5-104ca870e483")
+			(uuid "abe0ecb3-a3fa-490a-8574-38a9e2c1ad30")
 		)
 		(fp_line
 			(start -2.3 1.4)
@@ -12955,7 +12955,7 @@
 				(type default)
 			)
 			(layer "F.SilkS")
-			(uuid "11a8e7fe-8b74-4bb0-8695-bfeeeddcfec7")
+			(uuid "7146a16e-bbec-4161-b902-f0e8d1621952")
 		)
 		(fp_line
 			(start 2.3 1.4)
@@ -12965,7 +12965,7 @@
 				(type default)
 			)
 			(layer "F.SilkS")
-			(uuid "98e853bb-71e1-4639-a019-ff73869a99ce")
+			(uuid "71e3d5f7-b3d9-436f-81e5-cc2d0aaec4fb")
 		)
 		(fp_line
 			(start 2.4 0.2)
@@ -12975,7 +12975,7 @@
 				(type default)
 			)
 			(layer "F.SilkS")
-			(uuid "49fe31ad-0760-4440-9a21-67c1cfc8bf3d")
+			(uuid "a2f9b272-f68c-4113-83fd-5caa18a7a5d9")
 		)
 		(fp_line
 			(start -1.6 -1.5)
@@ -12985,10 +12985,10 @@
 				(type default)
 			)
 			(layer "Dwgs.User")
-			(uuid "bfc0b3c7-fcd9-4c61-a947-821c2038452f")
+			(uuid "8afb24e6-87d9-40a5-af4f-2aa17f2a8614")
 		)
 		(fp_rect
-			(start -2.6 -1.6)
+			(start -2.6 -1.4)
 			(end 2.6 1.9)
 			(stroke
 				(width 0.05)
@@ -12996,13 +12996,13 @@
 			)
 			(fill none)
 			(layer "F.CrtYd")
-			(uuid "c89bc8a2-5e06-4111-a41f-2631e8d8f70d")
+			(uuid "fff732bd-8ccc-43df-9259-9016c188e533")
 		)
 		(fp_text user "PCB Edge"
 			(at 2 -1.45 180)
 			(unlocked yes)
 			(layer "Dwgs.User")
-			(uuid "823c2af4-c8cf-49f5-8ba7-ac9af1ce1dbf")
+			(uuid "fd3119ab-c686-4a5d-b2dd-6ad7ba31ad5b")
 			(effects
 				(font
 					(size 0.5 0.5)
@@ -13015,7 +13015,7 @@
 			(at 0 6.7 0)
 			(unlocked yes)
 			(layer "F.Fab")
-			(uuid "f2f871a4-1d45-4bb0-bcdb-4d5c712c4da6")
+			(uuid "850505f4-462f-45f8-ad51-e286b1e2d6d4")
 			(effects
 				(font
 					(size 1 1)
@@ -13028,28 +13028,28 @@
 			(size 0.6 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
 			(thermal_bridge_angle 45)
-			(uuid "1add69d0-8e4f-4046-9450-4c1c12681447")
+			(uuid "79bb59b7-c5f3-44ed-a4dc-ac2532bed6ae")
 		)
 		(pad "" np_thru_hole circle
 			(at -0.85 0)
 			(size 0.7 0.7)
 			(drill 0.7)
 			(layers "F&B.Cu" "*.Mask")
-			(uuid "e69b95d8-f50f-4980-87e7-2a19bb580ce5")
+			(uuid "fc72f503-f1b2-4afb-8e32-3a70c92c3b4f")
 		)
 		(pad "" np_thru_hole circle
 			(at 0.85 0)
 			(size 0.7 0.7)
 			(drill 0.7)
 			(layers "F&B.Cu" "*.Mask")
-			(uuid "5959b920-969f-477b-8c7c-f2356ec38c7f")
+			(uuid "becda204-b1f2-43d9-a85c-cdf6bcfc8e02")
 		)
 		(pad "" smd rect
 			(at 2.3 -0.6)
 			(size 0.6 1.2)
 			(layers "F.Cu" "F.Paste" "F.Mask")
 			(thermal_bridge_angle 45)
-			(uuid "cd02441e-2082-4ee2-8d3b-922011cf6237")
+			(uuid "cfdecc76-9a25-48cf-9eef-25cd7e0a10f7")
 		)
 		(pad "1" smd rect
 			(at -1.7 1.4)
@@ -13059,7 +13059,7 @@
 			(pinfunction "1")
 			(pintype "passive")
 			(thermal_bridge_angle 45)
-			(uuid "b49ed2e7-f320-4e0b-a78a-d5e9c8db2ad1")
+			(uuid "f27a583b-0dd2-420c-9b0a-c1e34bbe80e6")
 		)
 		(pad "2" smd rect
 			(at 1.7 1.4)
@@ -13069,7 +13069,18 @@
 			(pinfunction "2")
 			(pintype "passive")
 			(thermal_bridge_angle 45)
-			(uuid "c611bbc8-b4b7-4e46-89c5-e327c2f822cd")
+			(uuid "7ac5ca52-5c09-44da-905b-a6dbc9a95e2f")
+		)
+		(model "${USERMODELS}/3dmodels/2x4 tactile smd switch.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
 		)
 	)
 	(footprint "Chof747 Footprints:MJ2509N"
@@ -17959,7 +17970,7 @@
 	(footprint "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 		(layer "F.Cu")
 		(uuid "f96315b6-20c3-4615-b280-84d63943774f")
-		(at 136.75 42.574656 180)
+		(at 136.75 42.724656 180)
 		(descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "capacitor handsolder")
 		(property "Reference" "C6"
@@ -20327,8 +20338,8 @@
 		(uuid "0d75f9b6-4ad2-4b69-83fd-23f449aef6ba")
 	)
 	(segment
-		(start 135 40.874656)
-		(end 135 41.687156)
+		(start 135 41.024656)
+		(end 135 41.837156)
 		(width 0.5)
 		(layer "F.Cu")
 		(net 2)
@@ -20383,8 +20394,8 @@
 		(uuid "465c65ee-147b-482e-b48a-52bb39f156e5")
 	)
 	(segment
-		(start 135 41.687156)
-		(end 135.8875 42.574656)
+		(start 135 41.837156)
+		(end 135.8875 42.724656)
 		(width 0.5)
 		(layer "F.Cu")
 		(net 2)
@@ -21774,8 +21785,8 @@
 		(uuid "7762c3bd-61ef-4760-b5a2-6092434dd224")
 	)
 	(segment
-		(start 137.6125 42.574656)
-		(end 138.4 41.787156)
+		(start 137.6125 42.724656)
+		(end 138.4 41.937156)
 		(width 0.13)
 		(layer "F.Cu")
 		(net 12)
@@ -21798,8 +21809,8 @@
 		(uuid "e5c1a7d5-7752-414a-8bce-2e96ef7c7e02")
 	)
 	(segment
-		(start 138.4 41.787156)
-		(end 138.4 40.874656)
+		(start 138.4 41.937156)
+		(end 138.4 41.024656)
 		(width 0.13)
 		(layer "F.Cu")
 		(net 12)
