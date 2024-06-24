@@ -12,9 +12,22 @@ stl_dir = '3dmodel/stl'
 if not os.path.exists(stl_dir):
   os.makedirs(stl_dir)
 
+# Read the .stlignore file if it exists
+ignore_list = []
+ignore_file_path = os.path.join(components_dir, '.stlignore')
+if os.path.exists(ignore_file_path):
+    with open(ignore_file_path, 'r') as ignore_file:
+        ignore_list = [line.strip() for line in ignore_file if line.strip()]
+
 # Scan for FCStd files in the components directory
 for filename in os.listdir(components_dir):
   if filename.endswith('.FCStd'):
+
+    # Check if the file is in the ignore list
+    if filename in ignore_list:
+      print(f"Skipping {filename} as it is listed in .stlignore")
+      continue
+
     # Load the FreeCAD document
     doc_path = os.path.join(components_dir, filename)
     base_name = os.path.splitext(filename)[0]
