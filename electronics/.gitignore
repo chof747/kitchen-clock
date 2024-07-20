@@ -2,3 +2,4 @@ kitchen-clock-backups/**
 resources/**
 *auto_saved_files*
 ~*.lck
+production/**
