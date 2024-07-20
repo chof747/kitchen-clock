@@ -2,10 +2,6 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"name": "Kitchen Clock",
-			"path": "firmware/Kitchen Clock"
 		}
 	],
 	"settings": {}
