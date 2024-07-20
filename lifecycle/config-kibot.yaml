@@ -1,0 +1,98 @@
+# This is a working example.
+# For a more complete reference use `--example`
+kibot:
+  version: 1
+
+global:
+  filters:
+  - number: 1007
+  - number: 1015
+  - number: 58
+
+import:
+- file: JLCPCB
+  definitions:
+    _KIBOT_MANF_DIR: production/jlcpcb
+    _KIBOT_POS_PRE_TRANSFORM: '[''_kicost_rename'', ''_rot_footprint'']'
+    _KIBOT_BOM_ENABLED: 'false'
+ 
+outputs:
+- name: generic_bom_csv
+  comment: Generic Bill of Materials in CSV format
+  type: bom
+  dir: BoM/Generic
+  options:
+    format: CSV
+    count_smd_tht: true
+
+- name: basic_dxf
+  comment: Individual layers in DXF format
+  type: dxf
+  dir: drawings/pcb/layers
+  layers:
+  - layer: F.Cu
+    suffix: F_Cu
+    description: Front copper
+  - layer: B.Cu
+    suffix: B_Cu
+    description: Bottom copper
+  - layer: F.Paste
+    suffix: F_Paste
+    description: Front solder paste
+  - layer: B.Silkscreen
+    suffix: B_Silkscreen
+    description: Bottom silkscreen (artwork)
+  - layer: F.Silkscreen
+    suffix: F_Silkscreen
+    description: Front silkscreen (artwork)
+  - layer: B.Mask
+    suffix: B_Mask
+    description: Bottom soldermask (negative)
+  - layer: F.Mask
+    suffix: F_Mask
+    description: Front soldermask (negative)
+  - layer: User.Drawings
+    suffix: User_Drawings
+    description: User drawings
+  - layer: Edge.Cuts
+    suffix: Edge_Cuts
+    description: Board shape
+  - layer: B.Courtyard
+    suffix: B_Courtyard
+    description: Bottom courtyard area
+  - layer: F.Courtyard
+    suffix: F_Courtyard
+    description: Front courtyard area
+  - layer: F.Fab
+    suffix: F_Fab
+    description: Front documentation
+- name: basic_dxf_sch_print
+  comment: Schematic in DXF format
+  type: dxf_sch_print
+  dir: drawings/schematic
+  options: 
+    background_color: true
+
+- name: basic_step
+  comment: 3D model in STEP format
+  type: step
+  dir: 3D
+  options:
+    show_silkscreen: true 
+    solder_mask: '#0D2966'
+
+...
+definitions:
+  _KIBOT_MANF_DIR_COMP: production
+  _KIBOT_GERBER_LAYERS: "- layer: 'F.Cu'\n        suffix: 'F_Cu'\n        description:\
+    \ 'Front copper'\n      - layer: 'B.Cu'\n        suffix: 'B_Cu'\n        description:\
+    \ 'Bottom copper'\n      - layer: 'F.Paste'\n        suffix: 'F_Paste'\n     \
+    \   description: 'Front solder paste'\n      - layer: 'B.Silkscreen'\n       \
+    \ suffix: 'B_Silkscreen'\n        description: 'Bottom silkscreen (artwork)'\n\
+    \      - layer: 'F.Silkscreen'\n        suffix: 'F_Silkscreen'\n        description:\
+    \ 'Front silkscreen (artwork)'\n      - layer: 'B.Mask'\n        suffix: 'B_Mask'\n\
+    \        description: 'Bottom soldermask (negative)'\n      - layer: 'F.Mask'\n\
+    \        suffix: 'F_Mask'\n        description: 'Front soldermask (negative)'\n\
+    \      - layer: 'Edge.Cuts'\n        suffix: 'Edge_Cuts'\n        description:\
+    \ 'Board shape'"
+
