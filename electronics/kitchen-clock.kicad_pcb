@@ -568,7 +568,7 @@
 			(pintype "passive")
 			(uuid "14dd9e9c-867d-43f8-b971-5d8dd9d82137")
 		)
-		(model "/Users/chof/Documents/KiCad/7.0/3dmodels/FS312F-G.stp"
+		(model "${USERMODELS}/3dmodels/FS312F-G.stp"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -1956,7 +1956,7 @@
 			(pintype "passive")
 			(uuid "997d869f-0767-487a-8d62-65ce4ac32052")
 		)
-		(model "/Users/chof/Documents/KiCad/7.0/3dmodels/CUI_DEVICES_MJ-2509N.step"
+		(model "${USERMODELS}/3dmodels/CUI_DEVICES_MJ-2509N.step"
 			(offset
 				(xyz 2.5 -8.9 2.7)
 			)
@@ -7826,7 +7826,7 @@
 			(pintype "passive")
 			(uuid "1396139f-b640-485b-829d-0e1eebb64dc3")
 		)
-		(model "/Users/chof/Documents/KiCad/7.0/3dmodels/ME6211C33M5G-N.stp"
+		(model "${USERMODELS}/3dmodels/ME6211C33M5G-N.stp"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -9509,18 +9509,7 @@
 			(pintype "bidirectional+no_connect")
 			(uuid "3903c8cb-e394-4617-bbde-7a95a7c780c8")
 		)
-		(model "ESP32-S3-WROOM-1-N8R8.stp"
-			(offset
-				(xyz 0 0 0)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz 0 0 0)
-			)
-		)
-		(model "/Users/chof/Documents/KiCad/7.0/3dmodels/ESP32-WROOM-internal_antenna.stp"
+		(model "/${USERMODELS}/3dmodels/ESP32-WROOM-internal_antenna.stp"
 			(offset
 				(xyz 0 0 1.7)
 			)
@@ -13519,7 +13508,7 @@
 			(pintype "passive")
 			(uuid "3072b8aa-1f75-4c7d-8bc5-c8757db3a5d4")
 		)
-		(model "/Users/chof/Documents/KiCad/7.0/3dmodels/CUI_DEVICES_MJ-2509N.step"
+		(model "${USERMODELS}/3dmodels/CUI_DEVICES_MJ-2509N.step"
 			(offset
 				(xyz 2.5 -8.9 2.7)
 			)
@@ -14869,7 +14858,7 @@
 		(descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "capacitor handsolder")
 		(property "Reference" "C12"
-			(at 3.1125 0.05 360)
+			(at 3.1125 0.05 0)
 			(layer "F.SilkS")
 			(uuid "65129255-13b8-408c-8858-1b056c84b25c")
 			(effects
@@ -14880,7 +14869,7 @@
 			)
 		)
 		(property "Value" "0.1uF"
-			(at 0 1.43 360)
+			(at 0 1.43 0)
 			(layer "F.Fab")
 			(uuid "f549849d-fa90-412a-b66e-f0229338271b")
 			(effects
@@ -15035,7 +15024,7 @@
 			(uuid "72986e4f-8e08-4cd1-b6f6-58cb6cf71a9a")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "faa7ae1a-62f4-49ab-b987-da975110f85c")
 			(effects
@@ -16159,7 +16148,7 @@
 			(pintype "passive")
 			(uuid "0f31e359-751c-43ce-b81d-1fe16153b5ff")
 		)
-		(model "/Users/chof/Documents/KiCad/7.0/3dmodels/PS1240P02CT3_short.step"
+		(model "${USERMODELS}/3dmodels/PS1240P02CT3_short.step"
 			(offset
 				(xyz 0 0 3.7)
 			)
@@ -20390,6 +20379,39 @@
 			(at 159.684243 29.6 0)
 			(layer "Dwgs.User")
 			(uuid "4e6bf087-476a-4cb5-b2c7-5966fb18dd97")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(format
+			(prefix "")
+			(suffix "")
+			(units 3)
+			(units_format 1)
+			(precision 4)
+		)
+		(style
+			(thickness 0.15)
+			(arrow_length 1.27)
+			(text_position_mode 0)
+			(extension_height 0.58642)
+			(extension_offset 0.5) keep_text_aligned)
+	)
+	(dimension
+		(type aligned)
+		(layer "Dwgs.User")
+		(uuid "a0e39626-709f-4395-bdec-ac69d4a7987a")
+		(pts
+			(xy 128.045693 37.874656) (xy 128.045693 147.874656)
+		)
+		(height 18.67776)
+		(gr_text "110.0000 mm"
+			(at 108.217933 92.874656 90)
+			(layer "Dwgs.User")
+			(uuid "a0e39626-709f-4395-bdec-ac69d4a7987a")
 			(effects
 				(font
 					(size 1 1)
@@ -28493,16 +28515,6 @@
 		(members "ce1ad806-a65d-4b49-8e61-28729a6e139d")
 	)
 	(group ""
-		(uuid "96d44b54-cc84-4e73-a12e-ee6426716c17")
-		(members "04bdc352-d866-4054-824c-b853dbd8f661" "272a0a71-3e7e-43e2-83ff-96e5292f1c5c"
-			"3108a149-46fe-4600-a38e-213ad7557d96" "3860f037-fec3-487e-a9a5-8aec74d4c341"
-			"4aa2a71b-6c42-4360-aa00-777ba94b7592" "72b902c2-cc1f-43dc-9653-d749499584fc"
-			"8d45f625-7283-440f-b7d8-7c04c6aa9852" "940a0c1a-4521-4b00-935a-0c0830bcad06"
-			"a70ff580-1a29-4177-87c4-0c23bc865595" "cb4177f6-4e40-4f50-a64d-d196c185e536"
-			"ce7eb0cf-fe6e-4007-b845-76025a85b131" "ec35083a-36a1-454f-afe5-2baadef3fa4a"
-		)
-	)
-	(group ""
 		(uuid "e3ecf43e-8faa-44be-93bc-8c31ade945ee")
 		(members "05ddd005-9b99-4a04-b49f-f23896fa9d65" "2b7f33b9-27c0-44ff-9f42-6c2d9540ee58"
 			"2ffd77d2-4486-47f3-844e-b548f98be83f" "3382acb7-ed41-471f-ae91-3306b657b649"
@@ -28519,6 +28531,17 @@
 			"c909a7e7-4ba0-4a55-a323-6e5f7c202356" "cf12b856-f66b-41ad-9389-221bc33b0165"
 			"e2792128-91db-43a6-aa71-e3d01177ec26" "ea4ba192-6fef-4c28-ac2b-6e6030a1b99e"
 			"f6721686-9ad2-4252-8b03-a879f1dfd9c2" "f8fefaf1-ae3b-4a3f-bbab-2732e3ab9909"
+		)
+	)
+	(group ""
+		(uuid "96d44b54-cc84-4e73-a12e-ee6426716c17")
+		(members "04bdc352-d866-4054-824c-b853dbd8f661" "272a0a71-3e7e-43e2-83ff-96e5292f1c5c"
+			"3108a149-46fe-4600-a38e-213ad7557d96" "3860f037-fec3-487e-a9a5-8aec74d4c341"
+			"4aa2a71b-6c42-4360-aa00-777ba94b7592" "72b902c2-cc1f-43dc-9653-d749499584fc"
+			"8d45f625-7283-440f-b7d8-7c04c6aa9852" "940a0c1a-4521-4b00-935a-0c0830bcad06"
+			"a0e39626-709f-4395-bdec-ac69d4a7987a" "a70ff580-1a29-4177-87c4-0c23bc865595"
+			"cb4177f6-4e40-4f50-a64d-d196c185e536" "ce7eb0cf-fe6e-4007-b845-76025a85b131"
+			"ec35083a-36a1-454f-afe5-2baadef3fa4a"
 		)
 	)
 )
