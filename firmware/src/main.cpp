@@ -12,6 +12,8 @@
 #include "multitimer.h"
 #include "tftdisplay.h"
 #include "powermanagement.h"
+#include "statuscontroller.h"
+#include "regions/statusregion.h"
 #include <Wire.h>
 #include <SPI.h>
 
@@ -39,10 +41,11 @@ ModFirmWare::MultiTimer mtimer(5 IN_SECONDS);
 
 ModFirmWare::Application app("KitchenClock");
 
+KitchenClock::StatusController statuscontroller(&powerMgmt, &wifi, &mqttClient, &display, {0, 0, 160, 16});
+
 time_t lastAction = 0;
 time_t reactivaTimerAt = 0;
 long servoPosition = 0;
-bool flip = true;
 
 void resetWifiSettings(const char *topic, const char *payload)
 //******************************************************************************
@@ -53,91 +56,11 @@ void resetWifiSettings(const char *topic, const char *payload)
   }
 }
 
-void moveServoTo(const char *topic, const char *payload)
-//******************************************************************************
+void modeButtonPress(uint16_t state, ModFirmWare::Buttons::click_t clicktype)
 {
-  long pos = strtol(payload, NULL, 10);
-  pos = (pos < 0) ? 0 : (pos > 90) ? 90
-                                   : pos;
-  clock_servo.moveToPosition(pos);
-}
-
-
-
-void rotaryEncPressed(uint16_t state, ModFirmWare::Buttons::click_t clicktype)
-//******************************************************************************
-{
-  logger->info(LOGTAG, "Encoder pressed with %s", (0 == clicktype) ? "Single-clicked" : (1 == clicktype) ? "Double-clicked"
-                                                                                                         : "Long-pressed");
-  if (ModFirmWare::Buttons::click_t::SINGLE == clicktype)
-  {
-    mtimer.pause();
-  }
-  else if (ModFirmWare::Buttons::click_t::DOUBLE == clicktype)
-  {
-    mtimer.resume();
-  }
-  else
-  {
-    // do nothing
-  }
-}
-
-void encoderCw(long counter)
-//******************************************************************************
-{
-  logger->info(LOGTAG, "Encoder clockwise (%d)", counter);
-  clock_servo.moveToPosition(counter);
-  lastAction = millis();
-}
-
-void encoderCCw(long counter)
-//******************************************************************************
-{
-  logger->info(LOGTAG, "Encoder counter-clockwise");
-  clock_servo.moveToPosition(counter);
-  lastAction = millis();
-}
-
-bool timerDone(time_t at)
-//******************************************************************************
-{
-  logger->info(LOGTAG, "Timer is finished at %d", at);
-  return true;
-}
-
-bool timerMilestone(const char* caption, time_t at)
-//******************************************************************************
-{
-  logger->info(LOGTAG, "Milstone: %s at %d", caption, at);
-  return true;
-}
-
-bool periodPast(const ModFirmWare::MultiTimer::periodtype_t periodType, time_t atMillis, time_t elapsed, time_t remaining, time_t toNextMilestone)
-//******************************************************************************
-{
-  if (ModFirmWare::MultiTimer::periodtype_t::SHORT == periodType)
-  {
-    // clock_servo.moveToPosition(servoPosition++);
-    logger->info(LOGTAG, "Short Period at = %06d", atMillis);
-  }
-  else if (ModFirmWare::MultiTimer::periodtype_t::LONG == periodType)
-  {
-    logger->info(LOGTAG, "Long Period at = %06d", atMillis);
-  }
-  return true;
-}
-
-void pwrDataUpdate(ModFirmWare::SensorComponent* sensor)
-{
-  char msg[120];
-
-
-  sprintf(msg, "{ \"busV\" : %.2f, \"current_mA\" : %.2f, \"consumption\" : %.2f \"charge status\" : %s}",
-   powerMgmt.getBusVoltage(), powerMgmt.getCurrentmA(), powerMgmt.getConsumptionmAh(), (powerMgmt.isCharging()) ? "charging" : ((powerMgmt.isReady()) ? "ready" : "undefined"));
-  logger->info(LOGTAG, msg);
-  logger->info(LOGTAG, "charge: %d, ready: %d", powerMgmt.isCharging(), powerMgmt.isReady());
-  mqttClient.sendMessage("tele", "battery", msg);
+  int d = digitalRead(DISPLAY_BKLT);
+  d = (LOW == d) ? HIGH : LOW;
+  digitalWrite(DISPLAY_BKLT, d);
 }
 
 void setup()
@@ -158,36 +81,28 @@ void setup()
   wifi.addConfigurator(&mqttClient);
 
   app.addComponent(&powerMgmt);
-  powerMgmt.setUpdateCallback(pwrDataUpdate);
-/*
+
   app.addComponent(&modeButton);
-  
+  modeButton.setButtonPressedCallBack(modeButtonPress);
+/*
   app.addComponent(&encoder);
-  encoder.setOnClockwise(encoderCw);
-  encoder.setOnCounterClockwise(encoderCCw);
-
   app.addComponent(&rotaryButton);
-  rotaryButton.setButtonPressedCallBack(rotaryEncPressed);
-
+*/
+  
+/*
   app.addComponent(&clock_servo);
-  clock_servo.setMinPosition(0);
-  clock_servo.setMaxPosition(90);
-
-  app.addComponent(&display);
-
   app.addComponent(&mtimer);
-  //mtimer.setDuration(1000);
-  // mtimer.setFinishedCallback(timerDone);
-  // mtimer.setPeriodCallback(periodPast);
-  // mtimer.setMileStoneCallback(timerMilestone);
 */
   delay(2000);
+
+  pinMode(DISPLAY_BKLT, OUTPUT);
+  digitalWrite(DISPLAY_BKLT, LOW);
 
   logger->debug(LOGTAG, "Starting setup");
   app.setup();
 
+  statuscontroller.activate();
   mqttClient.registerCommand("resetwifi", resetWifiSettings);
-  mqttClient.registerCommand("moveto", moveServoTo);
 
   logger->info(LOGTAG, "Setup Done!");
 
@@ -196,13 +111,7 @@ void setup()
 
 void loop()
 {
+  statuscontroller.loop();
   app.loop();
-
-  if (5000 < (millis() - lastAction))
-  {
-    lastAction = millis();
-    //logger->debug(LOGTAG, "heartbeat");
-  }
-
   // logger->info(LOGTAG,"Hello World!");
 }
