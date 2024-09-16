@@ -36,7 +36,25 @@
 #define SERVO_MIN_PULSE     500  // minmum pulse width for 0°
 #define SERVO_MAX_PULSE    2500  // maximum pulse width for 180°
 
+//Battery Management
 
+// Define the voltage thresholds (in millivolts)
+#define FULLY_CHARGED_VOLTAGE 3650 // 3.65V, 100%
+#define ALMOST_FULL_VOLTAGE 3500   // 3.50V, 90%
+#define HIGH_VOLTAGE 3400          // 3.40V, 70%
+#define MEDIUM_VOLTAGE 3300        // 3.30V, 40%
+#define LOW_VOLTAGE 3200           // 3.20V, 20%
+#define VERY_LOW_VOLTAGE 3000      // 3.00V, 10%
+#define MINIMUM_VOLTAGE 2800       // 2.80V, 0%
+
+// Define the percentage values at the thresholds
+#define PERCENT_FULL 100
+#define PERCENT_ALMOST_FULL 90
+#define PERCENT_HIGH 70
+#define PERCENT_MEDIUM 40
+#define PERCENT_LOW 20
+#define PERCENT_VERY_LOW 10
+#define PERCENT_MINIMUM 0
 
 
 #endif //CONFIG_H
