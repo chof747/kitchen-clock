@@ -49,7 +49,7 @@
         "silk_text_upright": false,
         "zones": {
           "45_degree_only": false,
-          "min_clearance": 0.0
+          "min_clearance": 0.04
         }
       },
       "diff_pair_dimensions": [
@@ -602,6 +602,10 @@
       {
         "netclass": "Power",
         "pattern": "/Peripherals/DISPLAY_PWR"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Battery Management/VBUS_CHG"
       }
     ]
   },
@@ -613,7 +617,7 @@
       "plot": "production/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "../3dmodel/test/kitchen-clock.step",
       "svg": "",
       "vrml": ""
     },

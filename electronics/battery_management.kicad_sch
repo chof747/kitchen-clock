@@ -3218,6 +3218,12 @@
 		)
 	)
 	(junction
+		(at 45.72 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "005e5155-1362-40ee-8328-4ba74b1a6acf")
+	)
+	(junction
 		(at 39.37 87.63)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3240,6 +3246,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0fd1d994-34d9-473d-879b-62e9ede1624b")
+	)
+	(junction
+		(at 106.68 134.62)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "29a57898-6d9c-4ffb-a862-1dd08b8803e0")
 	)
 	(junction
 		(at 134.62 38.1)
@@ -3278,12 +3290,6 @@
 		(uuid "3bcbcfe5-e9b0-4576-a48e-4129e260076f")
 	)
 	(junction
-		(at 39.37 30.48)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "3bfc8de5-7fb6-483d-bbcb-5dd447cad6b4")
-	)
-	(junction
 		(at 135.89 97.79)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3312,12 +3318,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "55625361-5dff-4c2a-a834-59faf3b796ea")
-	)
-	(junction
-		(at 22.86 30.48)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "5c9aa68a-bcd5-4232-946a-ab7603943b26")
 	)
 	(junction
 		(at 78.74 40.64)
@@ -3428,6 +3428,12 @@
 		(uuid "e3081c96-b14a-442a-bebf-bdd99962ecb8")
 	)
 	(junction
+		(at 39.37 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e93049b3-2d9a-413e-b36c-e9f6c5c8e129")
+	)
+	(junction
 		(at 135.89 113.03)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3454,6 +3460,16 @@
 			(type default)
 		)
 		(uuid "01a0b4fc-0def-4110-851b-df8931e6620c")
+	)
+	(wire
+		(pts
+			(xy 95.25 146.05) (xy 95.25 157.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0404c27c-a810-4cd1-ba73-f4b7765a2a04")
 	)
 	(wire
 		(pts
@@ -3507,6 +3523,16 @@
 	)
 	(wire
 		(pts
+			(xy 45.72 26.67) (xy 45.72 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0ac12c39-2436-453c-b72b-5d0905f3fe61")
+	)
+	(wire
+		(pts
 			(xy 39.37 38.1) (xy 39.37 39.37)
 		)
 		(stroke
@@ -3524,6 +3550,16 @@
 			(type default)
 		)
 		(uuid "0fd74587-73f9-48a4-b504-88c0c654f799")
+	)
+	(wire
+		(pts
+			(xy 20.32 30.48) (xy 22.86 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1132b523-a096-4f8c-b049-182cf164da1c")
 	)
 	(wire
 		(pts
@@ -3657,6 +3693,16 @@
 	)
 	(wire
 		(pts
+			(xy 106.68 134.62) (xy 106.68 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "27df9778-9e02-42a8-ab12-d7ed59b5e623")
+	)
+	(wire
+		(pts
 			(xy 48.26 87.63) (xy 57.15 87.63)
 		)
 		(stroke
@@ -3674,6 +3720,16 @@
 			(type default)
 		)
 		(uuid "28fe6510-b486-415a-bf84-0c5a0dffb4b2")
+	)
+	(wire
+		(pts
+			(xy 106.68 124.46) (xy 106.68 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2da0f92d-c613-467a-8658-35a1c718f671")
 	)
 	(wire
 		(pts
@@ -3807,6 +3863,16 @@
 	)
 	(wire
 		(pts
+			(xy 106.68 134.62) (xy 95.25 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "423a846a-9e7f-4da9-9070-9fc6bea4725a")
+	)
+	(wire
+		(pts
 			(xy 182.88 125.73) (xy 198.12 125.73)
 		)
 		(stroke
@@ -3894,16 +3960,6 @@
 			(type default)
 		)
 		(uuid "52ce6031-dbe3-4215-964b-c49499d4886a")
-	)
-	(wire
-		(pts
-			(xy 22.86 30.48) (xy 22.86 31.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5674c367-3fa8-4b93-889a-9bcc47a457b4")
 	)
 	(wire
 		(pts
@@ -4237,6 +4293,16 @@
 	)
 	(wire
 		(pts
+			(xy 106.68 146.05) (xy 106.68 157.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "800703f4-56c0-41c0-9805-b30ad821599b")
+	)
+	(wire
+		(pts
 			(xy 68.58 110.49) (xy 76.2 110.49)
 		)
 		(stroke
@@ -4294,16 +4360,6 @@
 			(type default)
 		)
 		(uuid "898e914f-e1dd-45c2-bb15-b6cc313350c6")
-	)
-	(wire
-		(pts
-			(xy 20.32 30.48) (xy 22.86 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8f7ad466-1b10-4957-9605-8f8ae1cbdcc8")
 	)
 	(wire
 		(pts
@@ -4497,6 +4553,16 @@
 	)
 	(wire
 		(pts
+			(xy 95.25 134.62) (xy 95.25 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aed73260-bfcf-4db6-9b8b-a77096945a17")
+	)
+	(wire
+		(pts
 			(xy 86.36 40.64) (xy 93.98 40.64)
 		)
 		(stroke
@@ -4534,6 +4600,16 @@
 			(type default)
 		)
 		(uuid "b0ed3869-83c3-462e-957d-b6cd193e34df")
+	)
+	(wire
+		(pts
+			(xy 38.1 30.48) (xy 39.37 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b24e97aa-0d65-45c4-b191-bbfa91f93cf0")
 	)
 	(wire
 		(pts
@@ -4734,16 +4810,6 @@
 			(type default)
 		)
 		(uuid "cd1310b4-e900-46a1-bd02-58f426b51abb")
-	)
-	(wire
-		(pts
-			(xy 22.86 30.48) (xy 39.37 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ce1fd783-77bb-4df6-a05a-342f8b8daf1f")
 	)
 	(wire
 		(pts
@@ -5101,6 +5167,17 @@
 		)
 		(uuid "248c8fd6-a185-47ac-9688-fe8a7ed5528c")
 	)
+	(label "RDY_IND"
+		(at 106.68 157.48 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "2d553921-df9d-4a11-b2ab-370056c2afa1")
+	)
 	(label "BAT-"
 		(at 172.72 49.53 180)
 		(fields_autoplaced yes)
@@ -5167,6 +5244,17 @@
 		)
 		(uuid "6de0a4f1-4efe-4221-8b75-7f29bbfbd828")
 	)
+	(label "VBUS_CHG"
+		(at 45.72 30.48 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "741c5462-18be-4aa1-a60c-7a470b063ef3")
+	)
 	(label "VBAT_M"
 		(at 34.29 154.94 180)
 		(fields_autoplaced yes)
@@ -5177,6 +5265,17 @@
 			(justify right bottom)
 		)
 		(uuid "8571bec6-291a-4e1d-853f-ec55d16fa78e")
+	)
+	(label "CHG_IND"
+		(at 95.25 157.48 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "879cbb28-d66b-453c-ae85-1d7038fff3dc")
 	)
 	(label "RDY_IND"
 		(at 35.56 97.79 180)
@@ -5793,6 +5892,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:LED")
+		(at 95.25 142.24 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "26eed4ac-9a5e-4ebe-9cf7-b267bf7cdc62")
+		(property "Reference" "D5"
+			(at 99.06 142.5574 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "CHG"
+			(at 99.06 145.0974 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "LED_THT:LED_D3.0mm"
+			(at 95.25 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 95.25 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Light emitting diode"
+			(at 95.25 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "18851b03-506d-4283-a440-ff367bf5b5f9")
+		)
+		(pin "2"
+			(uuid "ffa35ebd-5da9-41e2-98ca-8a95ae1aaf84")
+		)
+		(instances
+			(project "kitchen-clock"
+				(path "/e8426e51-e5a9-4642-8277-6d3f50e0e523/6537148f-eef7-4ec7-904a-3789599097e2"
+					(reference "D5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:L")
 		(at 148.59 97.79 90)
 		(unit 1)
@@ -5932,6 +6101,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:VBUS")
+		(at 106.68 124.46 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "38396562-f426-4a84-8825-a7b0e7b30cf1")
+		(property "Reference" "#PWR042"
+			(at 106.68 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VBUS"
+			(at 106.68 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 106.68 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VBUS\""
+			(at 106.68 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "98a5d499-4fce-4b18-bed3-1ff6d90ac19e")
+		)
+		(instances
+			(project "kitchen-clock"
+				(path "/e8426e51-e5a9-4642-8277-6d3f50e0e523/6537148f-eef7-4ec7-904a-3789599097e2"
+					(reference "#PWR042")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Regulator_Switching:MT3608")
 		(at 148.59 110.49 0)
 		(unit 1)
@@ -6008,6 +6242,217 @@
 			(project "kitchen-clock"
 				(path "/e8426e51-e5a9-4642-8277-6d3f50e0e523/6537148f-eef7-4ec7-904a-3789599097e2"
 					(reference "U1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED")
+		(at 106.68 142.24 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4b910177-933d-4075-a349-1c172deabba7")
+		(property "Reference" "D6"
+			(at 110.49 142.5574 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "RDY"
+			(at 110.49 145.0974 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "LED_THT:LED_D3.0mm"
+			(at 106.68 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 106.68 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Light emitting diode"
+			(at 106.68 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "90f9b898-4e7e-4671-b37f-06231e04cce1")
+		)
+		(pin "2"
+			(uuid "74b0d817-46dd-460e-a109-58746cc5cb6b")
+		)
+		(instances
+			(project "kitchen-clock"
+				(path "/e8426e51-e5a9-4642-8277-6d3f50e0e523/6537148f-eef7-4ec7-904a-3789599097e2"
+					(reference "D6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Chof747 passive:SS34A")
+		(at 38.1 30.48 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4d083245-e6fa-40ec-a5f8-0c8f707d1ec9")
+		(property "Reference" "D4"
+			(at 30.48 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SS34A"
+			(at 30.48 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Chof747 Footprints:DIOM5026X262N"
+			(at 26.67 -66.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://componentsearchengine.com/Datasheets/2/SS34A.pdf"
+			(at 26.67 -166.98 0)
+			(show_name yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 38.1 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" "2.62"
+			(at 26.67 -366.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "MULTICOMP"
+			(at 26.67 -466.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "SS34A"
+			(at 26.67 -566.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" ""
+			(at 26.67 -666.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" ""
+			(at 26.67 -766.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Arrow Part Number" ""
+			(at 26.67 -866.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Arrow Price/Stock" ""
+			(at 26.67 -966.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "05505842-2549-4832-af8e-85f4bf73443d")
+		)
+		(pin "2"
+			(uuid "e73b3f0a-4c29-49c3-af6d-594322cc26d9")
+		)
+		(instances
+			(project "kitchen-clock"
+				(path "/e8426e51-e5a9-4642-8277-6d3f50e0e523/6537148f-eef7-4ec7-904a-3789599097e2"
+					(reference "D4")
 					(unit 1)
 				)
 			)
@@ -7019,7 +7464,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
+		(property "Footprint" "LED_THT:LED_D3.0mm"
 			(at 147.32 55.88 0)
 			(effects
 				(font
@@ -7126,6 +7571,72 @@
 			(project "kitchen-clock"
 				(path "/e8426e51-e5a9-4642-8277-6d3f50e0e523/6537148f-eef7-4ec7-904a-3789599097e2"
 					(reference "C1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:PWR_FLAG")
+		(at 45.72 26.67 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "97c96912-8316-4b83-9fe6-6656da60298f")
+		(property "Reference" "#FLG08"
+			(at 45.72 24.765 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "PWR_FLAG"
+			(at 45.72 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 45.72 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 45.72 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Special symbol for telling ERC where power comes from"
+			(at 45.72 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fa876e1d-87ec-4cd4-9193-d1a597bb67ab")
+		)
+		(instances
+			(project ""
+				(path "/e8426e51-e5a9-4642-8277-6d3f50e0e523/6537148f-eef7-4ec7-904a-3789599097e2"
+					(reference "#FLG08")
 					(unit 1)
 				)
 			)
@@ -8240,6 +8751,76 @@
 			(project "kitchen-clock"
 				(path "/e8426e51-e5a9-4642-8277-6d3f50e0e523/6537148f-eef7-4ec7-904a-3789599097e2"
 					(reference "SW1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 106.68 130.81 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d4ab806c-161d-4791-87d6-7d02d043b8d7")
+		(property "Reference" "R29"
+			(at 109.22 129.5399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1k"
+			(at 109.22 132.0799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+			(at 104.902 130.81 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 106.68 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 106.68 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "16744286-661d-46c9-aae0-e1143c2963b0")
+		)
+		(pin "2"
+			(uuid "8306da03-7ec0-46df-b483-f97bf07b4864")
+		)
+		(instances
+			(project "kitchen-clock"
+				(path "/e8426e51-e5a9-4642-8277-6d3f50e0e523/6537148f-eef7-4ec7-904a-3789599097e2"
+					(reference "R29")
 					(unit 1)
 				)
 			)

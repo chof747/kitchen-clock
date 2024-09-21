@@ -12,4 +12,4 @@ the project will contain all the necessary electrical and housing components.
 
 ## PCB
 
-**v1.0**: Initial version of PCB sent to production on 22.07.2024
+**v1.0**: Initial version of PCB sent to production on 22.07.2024 assembled on 08.09.2024
