@@ -165,7 +165,6 @@ void KitchenClock::StatusRegion::drawPoweredIndicator(int startx)
 
   display()->drawLine(startx + 5, starty + 5, startx + 7, starty + 5, BATTERY_IND_COLOR);
   display()->drawLine(startx + 5, starty + 6, startx + 7, starty + 6, COLOR_GREY);
-
 }
 
 void StatusRegion::doBlinking(bool blinkstate)
@@ -189,6 +188,9 @@ void StatusRegion::doBlinkBatteryIndicator(bool blinkstate)
   int startx = translateX(width() - BATTERY_POS_FROM_RIGHT);
   starty = translateY(starty);
 
-  display()->drawRect(startx + 2 + indicatormax * 3, starty + 2, 2, 4,
-                      (blinkstate) ? BACKGROUND_COLOR : BATTERY_IND_COLOR);
+  if (0 <= indicatormax)
+  {
+    display()->drawRect(startx + 2 + indicatormax * 3, starty + 2, 2, 4,
+                        (blinkstate) ? BACKGROUND_COLOR : BATTERY_IND_COLOR);
+  }
 }

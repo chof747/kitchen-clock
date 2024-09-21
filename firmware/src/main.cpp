@@ -31,7 +31,7 @@ ModFirmWare::Mqtt mqttClient;
 ModFirmWare::GPIOButton modeButton(MODE_BTN, INPUT_PULLUP, true);
 ModFirmWare::GPIOButton rotaryButton(REN_BTN, INPUT_PULLUP, true);
 ModFirmWare::PowerManagement powerMgmt(CHG_IND, RDY_IND);
-ModFirmWare::RotaryEncoder encoder(REN_CLK, REN_DAT);
+ModFirmWare::RotaryEncoder encoder(REN_CLK, REN_DAT, 0, 100);
 ModFirmWare::Servo clock_servo(SERVO_PWM, SERVO_DRV, 
                                SERVO_PWM_CHANNEL, SERVO_PWM_RESOLUTION, SERVO_FREQ,
                                SERVO_MIN_PULSE, SERVO_MAX_PULSE);
@@ -84,11 +84,9 @@ void setup()
 
   app.addComponent(&modeButton);
   modeButton.setButtonPressedCallBack(modeButtonPress);
-/*
+
   app.addComponent(&encoder);
-  app.addComponent(&rotaryButton);
-*/
-  
+
 /*
   app.addComponent(&clock_servo);
   app.addComponent(&mtimer);
@@ -101,11 +99,13 @@ void setup()
   logger->debug(LOGTAG, "Starting setup");
   app.setup();
 
+  display.fillRect(0,0,display.width(), display.height(), ST77XX_BLACK);
   statuscontroller.activate();
+  
   mqttClient.registerCommand("resetwifi", resetWifiSettings);
 
   logger->info(LOGTAG, "Setup Done!");
-
+  
   mtimer.start();
 }
 

@@ -17,6 +17,7 @@ void StatusController::activate()
   display->registerRegion(&region);
   pwrMgmt->setUpdateCallback([this](ModFirmWare::SensorComponent *s)
                              { this->getPowerManagementUpdate(s); });
+  pwrMgmt->measureNow();
 }
 
 void StatusController::deactivate()
