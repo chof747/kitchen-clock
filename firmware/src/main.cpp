@@ -86,7 +86,10 @@ void setup()
   modeButton.setButtonPressedCallBack(modeButtonPress);
 
   app.addComponent(&encoder);
+  app.addComponent(&rotaryButton);
 
+  app.addComponent(&display);
+  
 /*
   app.addComponent(&clock_servo);
   app.addComponent(&mtimer);
@@ -94,7 +97,7 @@ void setup()
   delay(2000);
 
   pinMode(DISPLAY_BKLT, OUTPUT);
-  digitalWrite(DISPLAY_BKLT, LOW);
+  digitalWrite(DISPLAY_BKLT, HIGH);
 
   logger->debug(LOGTAG, "Starting setup");
   app.setup();

@@ -17,6 +17,7 @@ void StatusController::activate()
   display->registerRegion(&region);
   pwrMgmt->setUpdateCallback([this](ModFirmWare::SensorComponent *s)
                              { this->getPowerManagementUpdate(s); });
+  
   pwrMgmt->measureNow();
 }
 
@@ -38,9 +39,7 @@ int StatusController::getBatteryPercentage(long v)
   // Check the voltage and interpolate between the defined ranges
 
   ModFirmWare::LogEngine *logger = ModFirmWare::LogEngine::getInstance();
-
-  logger->debug(LOGTAG, "V = %d", v);
-
+  
   if (v >= FULLY_CHARGED_VOLTAGE)
   {
     return PERCENT_FULL; // 100% or above
