@@ -12,7 +12,7 @@
 #define ADC_00_DRV    8  // Pin driving 3v3 line for ADC 0 (to prevent termister overheat)
 #define ADC_01_DRV    9  // Pin driving 3v3 line for ADC 1 (to prevent termister overheat)
 
-#define MODE_BTN     13  // Mode button pin
+#define MODE_BTN      0  // Mode button pin
 #define REN_BTN      10  // Rotary ENcoder click button pin
 #define REN_DAT      11  // Rotery ENcoder data line
 #define REN_CLK      12  // Rotery ENcoder clock line
@@ -55,6 +55,17 @@
 #define PERCENT_LOW 20
 #define PERCENT_VERY_LOW 10
 #define PERCENT_MINIMUM 0
+
+#ifndef IN_SECONDS
+#define IN_SECONDS * 1000
+#endif
+
+
+// TODO: Configs that should go later into a config file on the flash memory
+
+#define CONTROLLER_IDLE_TIME 15 IN_SECONDS
+#define DISPLAY_IDLE_TURN_OFF_TIME 25 IN_SECONDS
+#define ESP_IDLE_DEEP_SLEEP_TIME 35 IN_SECONDS
 
 
 #endif //CONFIG_H

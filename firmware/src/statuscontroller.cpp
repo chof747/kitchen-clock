@@ -14,6 +14,8 @@ using namespace KitchenClock;
 void StatusController::activate()
 //*****************************************************************************
 {
+  Controller::activate();
+  
   display->registerRegion(&region);
   pwrMgmt->setUpdateCallback([this](ModFirmWare::SensorComponent *s)
                              { this->getPowerManagementUpdate(s); });
