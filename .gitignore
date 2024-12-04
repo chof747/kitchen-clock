@@ -3,3 +3,4 @@
 electronics/fp-info-cache
 deliverables
 firmware/src/main.cpp_*
+/firmware/.vscode
