@@ -22,24 +22,16 @@ bool StatusRegion::isUpdated() const
   return anythingNew;
 }
 
-void StatusRegion::update(bool blink)
+void StatusRegion::updateCanvas()
 //****************************************************************************************
 {
-  ModFirmWare::TFTDisplay *tft = display();
+  Adafruit_GFX *tft = display();
 
-  if (anythingNew)
+  tft->fillRect(0, 0, width(), height(), BACKGROUND_COLOR);
+  drawBatteryIndicator(width() - BATTERY_POS_FROM_RIGHT);
+  if (powered)
   {
-    tft->fillRect(translateX(0), translateY(0), width(), height(), BACKGROUND_COLOR);
-    drawBatteryIndicator(width() - BATTERY_POS_FROM_RIGHT);
-    if (powered)
-    {
-      drawPoweredIndicator(width() - (BATTERY_POS_FROM_RIGHT + POWERED_IND_WIDTH + 1));
-    }
-  }
-
-  if (blinking)
-  {
-    doBlinking(blink);
+    drawPoweredIndicator(width() - (BATTERY_POS_FROM_RIGHT + POWERED_IND_WIDTH + 1));
   }
 
   anythingNew = false;
@@ -117,9 +109,6 @@ void StatusRegion::drawBatteryIndicator(int startx)
     return;
   }
 
-  startx = translateX(startx);
-  starty = translateY(starty);
-
   // draw the big rect for battery body
   display()->drawRect(startx, starty, 15, 8, BATTERY_IND_COLOR);
   // draw the small rect for battery pole
@@ -153,9 +142,6 @@ void KitchenClock::StatusRegion::drawPoweredIndicator(int startx)
     return;
   }
 
-  startx = translateX(startx);
-  starty = translateY(starty);
-
   display()->fillRect(startx + 2, starty, 3, 8, BATTERY_IND_COLOR);
   display()->drawLine(startx + 1, starty + 1, startx + 1, starty + 6, BATTERY_IND_COLOR);
   display()->drawLine(startx, starty + 2, startx, starty + 5, BATTERY_IND_COLOR);
@@ -184,9 +170,7 @@ void StatusRegion::doBlinkBatteryIndicator(bool blinkstate)
   }
 
   int indicatormax = getBatteryIndicator() - 1;
-
-  int startx = translateX(width() - BATTERY_POS_FROM_RIGHT);
-  starty = translateY(starty);
+  int startx = width() - BATTERY_POS_FROM_RIGHT;
 
   if (0 <= indicatormax)
   {

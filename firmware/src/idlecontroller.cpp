@@ -91,5 +91,5 @@ void KitchenClock::IdleController::endIdling()
 //****************************************************************************************
 {
   display->enableSleep(false);
-  gotoNext();
+  gotoPrev();
 }
