@@ -16,10 +16,10 @@ namespace KitchenClock
   public:
     StartRegion(ModFirmWare::TFTDisplay *display, const char *startImageFileName);
 
-    void update(bool blink) override;
+    void updateCanvas();
 
   protected:
-    bool isUpdated() const { return done; }
+    bool isUpdated() const { return !done; }
 
   private:
     bool done;

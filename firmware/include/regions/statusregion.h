@@ -19,7 +19,7 @@ namespace KitchenClock
         : ModFirmWare::DisplayRegion(window, display), anythingNew(false), 
         powered(false), connected(false), batteryPercent(250) {}
 
-    void update(bool blink) override;
+    void updateCanvas();
     void setBatteryPercent(const uint8_t batteryPercent);
     void setPowered(const bool powered);
     void setCharging(const bool charging);
@@ -27,6 +27,7 @@ namespace KitchenClock
 
   protected:
     bool isUpdated() const override;
+    void doBlinking(bool blinkstate) override;
 
   private:
 
@@ -34,7 +35,6 @@ namespace KitchenClock
 
     void drawBatteryIndicator(int startx);
     void drawPoweredIndicator(int startx);
-    void doBlinking(bool blinkstate);
     void doBlinkBatteryIndicator(bool blinkstate);
 
     uint8_t batteryPercent;
