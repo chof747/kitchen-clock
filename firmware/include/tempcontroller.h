@@ -1,17 +1,16 @@
-#ifndef MAINCONTROLLER_H
-#define MAINCONTROLLER_H
+#ifndef TEMPONTROLLER_H
+#define TEMPCONTROLLER_H
 
 #include "idleablecontroller.h"
-#include "buttons.h"
 #include "controlunit.h"
 
 namespace KitchenClock
 {
 
-  class MainController : public ModFirmWare::IdleableController, protected ControlUnit
+  class TempController : public ModFirmWare::IdleableController, protected ControlUnit
   {
   public:
-    MainController(ModFirmWare::Controller *idleController,
+    TempController(ModFirmWare::Controller *idleController,
                    ModFirmWare::RotaryEncoder *rotaryEncoder,
                    ModFirmWare::GPIOButton *rotaryButton,
                    ModFirmWare::GPIOButton *modeButton,
@@ -30,4 +29,4 @@ namespace KitchenClock
   };
 };
 
-#endif // MAINCONTROLLER_H
+#endif // TEMPCONTROLLER_H

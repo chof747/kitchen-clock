@@ -60,6 +60,11 @@
 #define IN_SECONDS * 1000
 #endif
 
+#ifndef LOGSPEED
+#define LOGSPEED 115200
+#endif
+
+
 
 // TODO: Configs that should go later into a config file on the flash memory
 

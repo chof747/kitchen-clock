@@ -19,7 +19,9 @@ namespace KitchenClock
     void updateCanvas();
 
   protected:
-    bool isUpdated() const { return !done; }
+    bool isUpdated() const { 
+      return !done; 
+    }
 
   private:
     bool done;

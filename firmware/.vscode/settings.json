@@ -1,4 +1,13 @@
 {
   "platformio-ide.useProjectTasks": true,
-  "platformio-ide.activateOnOpen": true
+  "platformio-ide.activateOnOpen": true,
+  "files.associations": {
+    "*.yml": "ansible",
+    "docker-compose.yaml": "dockercompose",
+    "docker-compose.yml": "dockercompose",
+    "stdexcept": "cpp",
+    "memory": "cpp",
+    "random": "cpp",
+    "optional": "cpp"
+  }
 }

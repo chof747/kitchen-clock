@@ -1,4 +1,4 @@
-#include "maincontroller.h"
+#include "tempcontroller.h"
 #include "roteryencoder.h"
 #include "gpiobutton.h"
 #include "tftdisplay.h"
@@ -6,9 +6,9 @@
 using namespace ModFirmWare;
 using namespace KitchenClock;
 
-#define LOGTAG "mainctrl"
+#define LOGTAG "tempctrl"
 
-MainController::MainController(Controller *idleController,
+TempController::TempController(Controller *idleController,
                                RotaryEncoder *rotaryEncoder,
                                GPIOButton *rotaryButton,
                                GPIOButton *modeButton,
@@ -19,47 +19,48 @@ MainController::MainController(Controller *idleController,
 {
 }
 
-void MainController::activate()
+void TempController::activate()
 //****************************************************************************************
 { 
   IdleableController::activate();
   takeOverControls();
-  logger->debug(LOGTAG, "MainController took over!");
+  logger->debug(LOGTAG, "TempController took over!");
 }
 
-void MainController::loop()
+void TempController::loop()
 //****************************************************************************************
 {
   IdleableController::loop();
 }
 
-void MainController::deactivate()
+void TempController::deactivate()
 //****************************************************************************************
 {
   IdleableController::deactivate();
 }
 
-void MainController::onRotaryCw(long counter)
+void TempController::onRotaryCw(long counter)
 //****************************************************************************************
 {
 }
 
-void MainController::onRotaryCCw(long counter)
+void TempController::onRotaryCCw(long counter)
 //****************************************************************************************
 {
 }
 
-void MainController::onRotaryClick(const uint16_t state, Buttons::click_t type)
+void TempController::onRotaryClick(const uint16_t state, Buttons::click_t type)
 //****************************************************************************************
 {
 }
 
-void MainController::onModeClick(const uint16_t state, Buttons::click_t type)
+void TempController::onModeClick(const uint16_t state, Buttons::click_t type)
 //****************************************************************************************
 {
+  gotoPrev();
 }
 
-void MainController::onAnyEvent()
+void TempController::onAnyEvent()
 //****************************************************************************************
 {
   watchdog();

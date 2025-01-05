@@ -11,8 +11,8 @@ StartRegion::StartRegion(ModFirmWare::TFTDisplay *display, const char *startImag
     : DisplayRegion(ModFirmWare::DisplayRegion::window_t({
                       x : 0,
                       y : 0,
-                      width : display->width(),
-                      height : display->height()
+                      width : (uint16_t) display->width(),
+                      height : (uint16_t) display->height()
                     }),
                     display),
       done(false), buffer(nullptr), imgSize()
@@ -35,6 +35,7 @@ StartRegion::StartRegion(ModFirmWare::TFTDisplay *display, const char *startImag
 
       if (nullptr != buffer)
       {
+        logger->debug(LOGTAG, "Image read!");
         done = false;
         return;
       }
