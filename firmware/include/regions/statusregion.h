@@ -16,7 +16,7 @@ namespace KitchenClock
   {
   public:
     StatusRegion(ModFirmWare::DisplayRegion::window_t window, ModFirmWare::TFTDisplay* display)
-        : ModFirmWare::DisplayRegion(window, display), anythingNew(false), 
+        : ModFirmWare::DisplayRegion(window, display, "statusregion"), anythingNew(false), 
         powered(false), connected(false), batteryPercent(250) {}
 
     void updateCanvas();

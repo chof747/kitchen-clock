@@ -3,10 +3,16 @@
 
 #include "idleablecontroller.h"
 #include "controlunit.h"
+#include "regions/tempregion.h"
+
+namespace ModFirmWare
+{
+  class NTCSensor;
+  class Mqtt;
+};
 
 namespace KitchenClock
 {
-
   class TempController : public ModFirmWare::IdleableController, protected ControlUnit
   {
   public:
@@ -14,7 +20,11 @@ namespace KitchenClock
                    ModFirmWare::RotaryEncoder *rotaryEncoder,
                    ModFirmWare::GPIOButton *rotaryButton,
                    ModFirmWare::GPIOButton *modeButton,
-                   ModFirmWare::TFTDisplay *display);
+                   ModFirmWare::NTCSensor* ntc1,
+                   ModFirmWare::NTCSensor* ntc2,
+                   ModFirmWare::Mqtt* mqtt,
+                   ModFirmWare::TFTDisplay *display,
+                   ModFirmWare::DisplayRegion::window_t window);
 
     void activate() override;
     void loop() override;
@@ -25,7 +35,19 @@ namespace KitchenClock
     void onRotaryCCw(long counter);
     void onRotaryClick(const uint16_t state, ModFirmWare::Buttons::click_t type);
     void onModeClick(const uint16_t state, ModFirmWare::Buttons::click_t type);
+    void onTempUpdate();
     void onAnyEvent();
+
+  private:
+    TempRegion region;
+    ModFirmWare::Mqtt* mqtt;
+    bool calibration;
+
+    ModFirmWare::NTCSensor* ntcProbe1;
+    ModFirmWare::NTCSensor* ntcProbe2;
+
+    void sendResistanceTemperature(uint8_t ix, float t, float r);
+
   };
 };
 

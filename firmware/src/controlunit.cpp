@@ -11,6 +11,7 @@ ControlUnit::ControlUnit(ModFirmWare::RotaryEncoder *rotaryEncoder,
                          ModFirmWare::GPIOButton *modeButton,
                          ModFirmWare::TFTDisplay *display)
   :rotaryEncoder(rotaryEncoder), rotaryButton(rotaryButton), modeButton(modeButton), display(display)
+//******************************************************************************
 {
 }
 
@@ -31,4 +32,10 @@ void ControlUnit::takeOverControls()
   modeButton->setButtonPressedCallBack([this](int button, Buttons::click_t state)
                                        { this->onAnyEvent();
                                          this->onModeClick(button, state); });
+}
+
+void ControlUnit::onAnyEvent()
+//******************************************************************************
+{
+  
 }

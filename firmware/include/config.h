@@ -36,6 +36,10 @@
 #define SERVO_MIN_PULSE     500  // minmum pulse width for 0°
 #define SERVO_MAX_PULSE    2500  // maximum pulse width for 180°
 
+//ADC Voltage Divider
+#define ADC_REF_VOLTAGE 3.30f
+#define ADC_R_FIXED 100000      //100k
+
 //Battery Management
 
 // Define the voltage thresholds (in millivolts)
@@ -64,7 +68,15 @@
 #define LOGSPEED 115200
 #endif
 
+//NTC parameters for {const_prefix}
+#define NTC1_ALPHA 0.0006036149946851701f
+#define NTC1_BETA 0.00022519743065172273f
+#define NTC1_GAMMA 7.712048835477529e-09f
 
+//NTC parameters for {const_prefix}
+#define NTC2_ALPHA 0.0006036149946851701f
+#define NTC2_BETA 0.00022519743065172273f
+#define NTC2_GAMMA 7.712048835477529e-09f
 
 // TODO: Configs that should go later into a config file on the flash memory
 

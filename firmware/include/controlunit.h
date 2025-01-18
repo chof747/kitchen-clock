@@ -27,7 +27,7 @@ namespace KitchenClock
     virtual void onRotaryClick(const uint16_t state, ModFirmWare::Buttons::click_t type) = 0;
     virtual void onModeClick(const uint16_t state, ModFirmWare::Buttons::click_t type) = 0;
 
-    virtual void onAnyEvent() { }
+    virtual void onAnyEvent();
 
     ModFirmWare::RotaryEncoder *rotaryEncoder;
     ModFirmWare::GPIOButton *rotaryButton;

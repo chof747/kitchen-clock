@@ -6,3 +6,4 @@
 .vscode/settings.json
 lib/
 data/mqtt.conf
+.venv

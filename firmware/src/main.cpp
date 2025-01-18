@@ -17,7 +17,7 @@
 
 KitchenClock::StatusController statusController(&powerMgmt, &wifi, &mqttClient, &display, {0, 0, 160, 16});
 KitchenClock::TimerController timerController(&idleController, &encoder, &rotaryButton, &modeButton, &display, &mtimer, &clock_servo); 
-KitchenClock::TempController tempController(&idleController, &encoder, &rotaryButton, &modeButton, &display);
+KitchenClock::TempController tempController(&idleController, &encoder, &rotaryButton, &modeButton, &ntcProbe1, &ntcProbe2, &mqttClient, &display, {0, 16, 160, 112});
 ModFirmWare::IconMenuController mainMenu(&encoder, &rotaryButton, &modeButton, &display, {0, 16, 160, 112}, &idleController);
 
 
@@ -34,6 +34,7 @@ void setup()
   KitchenClock::setupCommunication();
 
   KitchenClock::setupInputs();
+  adsSensor.setUpdateInterval(5 IN_SECONDS);
 /*
   app.addComponent(&clock_servo);
   app.addComponent(&mtimer);
@@ -61,6 +62,7 @@ void setup()
   logger->info(LOGTAG, "Setup Done!");
   mainMenu.activate();
 
+  display.unregisterRegion(sr);
   delete sr;
 
   mtimer.start();

@@ -14,6 +14,7 @@
 #include "roteryencoder.h"
 #include "powermanagement.h"
 #include "ads1115.h"
+#include "ntcsensor.h"
 #include "servo.h"
 #include "wlan.h"
 #include "mqtt.h"
@@ -56,7 +57,10 @@ ModFirmWare::Ads1115Sensor::channels_t adcChannels = {
     ModFirmWare::Ads1115Sensor::CHANNEL_NOT_USED,
     ModFirmWare::Ads1115Sensor::CHANNEL_NOT_USED,
     ADC_01_DRV};
-ModFirmWare::Ads1115Sensor adsSensor(adcChannels);
+ModFirmWare::Ads1115Sensor adsSensor(adcChannels, ADC_REF_VOLTAGE, ADC_R_FIXED);
+
+ModFirmWare::NTCSensor ntcProbe1(&adsSensor, 0, NTC1_ALPHA, NTC1_BETA, NTC1_GAMMA);
+ModFirmWare::NTCSensor ntcProbe2(&adsSensor, 3, NTC2_ALPHA, NTC2_BETA, NTC2_GAMMA);
 
 /*******************************************************************************
  * 

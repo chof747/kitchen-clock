@@ -14,7 +14,7 @@ StartRegion::StartRegion(ModFirmWare::TFTDisplay *display, const char *startImag
                       width : (uint16_t) display->width(),
                       height : (uint16_t) display->height()
                     }),
-                    display),
+                    display, "startregion"),
       done(false), buffer(nullptr), imgSize()
 //****************************************************************************************
 {
