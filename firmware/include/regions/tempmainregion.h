@@ -11,10 +11,10 @@ namespace ModFirmWare
 namespace KitchenClock
 {
 
-  class TempRegion : public ModFirmWare::DisplayRegion
+  class TempMainRegion : public ModFirmWare::DisplayRegion
   {
   public:
-    TempRegion(ModFirmWare::TFTDisplay *display,  ModFirmWare::DisplayRegion::window_t window);
+    TempMainRegion(ModFirmWare::TFTDisplay *display,  ModFirmWare::DisplayRegion::window_t window);
 
     void updateCanvas() override;
 

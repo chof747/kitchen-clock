@@ -10,14 +10,14 @@
 
 #include "statuscontroller.h"
 #include "timercontroller.h"
-#include "tempcontroller.h"
+#include "tempmaincontroller.h"
 #include "regions/statusregion.h"
 
 #define LOGTAG "main"
 
 KitchenClock::StatusController statusController(&powerMgmt, &wifi, &mqttClient, &display, {0, 0, 160, 16});
 KitchenClock::TimerController timerController(&idleController, &encoder, &rotaryButton, &modeButton, &display, &mtimer, &clock_servo); 
-KitchenClock::TempController tempController(&idleController, &encoder, &rotaryButton, &modeButton, &ntcProbe1, &ntcProbe2, &mqttClient, &display, {0, 16, 160, 112});
+KitchenClock::TempMainController tempMainController(&idleController, &encoder, &rotaryButton, &modeButton, &ntcProbe1, &ntcProbe2, &mqttClient, &display, {0, 16, 160, 112});
 ModFirmWare::IconMenuController mainMenu(&encoder, &rotaryButton, &modeButton, &display, {0, 16, 160, 112}, &idleController);
 
 
@@ -47,13 +47,13 @@ void setup()
 
   KitchenClock::compileMenu(&mainMenu, 
     nullptr /* timerController */,
-    &tempController,
+    &tempMainController,
     nullptr /* home automation controller */,
     nullptr /* settings controller*/);
 
   mainMenu.setDimensions(40, 40, 25, 2, 10);
 
-  app.registerController(&tempController, &mainMenu);
+  app.registerController(&tempMainController, &mainMenu);
   app.registerController(&timerController, &mainMenu);
   app.registerController(&idleController);
   app.registerController(&mainMenu);

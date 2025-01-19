@@ -1,28 +1,26 @@
-#include "regions/tempregion.h"
+#include "regions/tempmainregion.h"
 #include "tftdisplay.h"
 #include "logengine.h"
 #include <Arduino.h>
-#include "regions/tempregion.h"
 
 // #include <Fonts/FreeSans9pt7b.h>  // Include 10px font
 // #include "fonts/FreeSans7pt7b.h" // Include 20px font
 #include "fonts/tahoma12pt.h"
 #include "fonts/tahoma7pt.h"
-#include "regions/tempregion.h"
 
 using namespace KitchenClock;
-#define LOGTAG "tempregion"
+#define LOGTAG "TempMainRegion"
 
 #define ACCURACY 1e-4
 
-TempRegion::TempRegion(ModFirmWare::TFTDisplay *display, ModFirmWare::DisplayRegion::window_t window)
-    : DisplayRegion(window, display, "tempregion"),
+TempMainRegion::TempMainRegion(ModFirmWare::TFTDisplay *display, ModFirmWare::DisplayRegion::window_t window)
+    : DisplayRegion(window, display, "TempMainRegion"),
       temp1(MAXFLOAT), temp2(MAXFLOAT), r1(MAXFLOAT), r2(MAXFLOAT), newvalues(false),
       calibration(false)
 //****************************************************************************************
 {
 }
-void KitchenClock::TempRegion::updateCanvas()
+void KitchenClock::TempMainRegion::updateCanvas()
 //****************************************************************************************
 {
   if (newvalues)
@@ -62,31 +60,31 @@ void KitchenClock::TempRegion::updateCanvas()
   }
 }
 
-void TempRegion::setTemperature1(const float temp)
+void TempMainRegion::setTemperature1(const float temp)
 //****************************************************************************************
 {
   temp1 = setValueIfNew(temp1, temp);
 }
 
-void TempRegion::setTemperature2(const float temp)
+void TempMainRegion::setTemperature2(const float temp)
 //****************************************************************************************
 {
   temp2 = setValueIfNew(temp2, temp);
 }
 
-void TempRegion::setResistance1(const float r)
+void TempMainRegion::setResistance1(const float r)
 //****************************************************************************************
 {
   r1 = setValueIfNew(r1, r);
 }
 
-void TempRegion::setResistance2(const float r)
+void TempMainRegion::setResistance2(const float r)
 //****************************************************************************************
 {
   r2 = setValueIfNew(r2, r);
 }
 
-void TempRegion::enableCalibrationMode(const bool calibration)
+void TempMainRegion::enableCalibrationMode(const bool calibration)
 //****************************************************************************************
 {
   if (calibration != this->calibration)
@@ -96,13 +94,13 @@ void TempRegion::enableCalibrationMode(const bool calibration)
   }
 }
 
-bool TempRegion::isUpdated() const
+bool TempMainRegion::isUpdated() const
 //****************************************************************************************
 {
   return newvalues;
 }
 
-float TempRegion::setValueIfNew(const float oldvalue, const float newvalue)
+float TempMainRegion::setValueIfNew(const float oldvalue, const float newvalue)
 //****************************************************************************************
 {
   float value = oldvalue;
@@ -116,7 +114,7 @@ float TempRegion::setValueIfNew(const float oldvalue, const float newvalue)
   return value;
 }
 
-void TempRegion::printCalibrationBlock(float t, float r, int ix)
+void TempMainRegion::printCalibrationBlock(float t, float r, int ix)
 //****************************************************************************************
 {
   char buffer[255];
@@ -130,7 +128,7 @@ void TempRegion::printCalibrationBlock(float t, float r, int ix)
 
 }
 
-void TempRegion::printTempBlock(float t, float r, int ix)
+void TempMainRegion::printTempBlock(float t, float r, int ix)
 //****************************************************************************************
 {
   char buffer[255];
@@ -143,7 +141,7 @@ void TempRegion::printTempBlock(float t, float r, int ix)
   y = printBlock(buffer, false, 15, y + 3, false);
 }
 
-int TempRegion::printBlock(const char *buffer, bool large, int x, int y, bool withDegree, const char *unit)
+int TempMainRegion::printBlock(const char *buffer, bool large, int x, int y, bool withDegree, const char *unit)
 //****************************************************************************************
 {
   auto *gfx = display();

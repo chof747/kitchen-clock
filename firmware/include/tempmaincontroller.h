@@ -3,7 +3,7 @@
 
 #include "idleablecontroller.h"
 #include "controlunit.h"
-#include "regions/tempregion.h"
+#include "regions/tempmainregion.h"
 
 namespace ModFirmWare
 {
@@ -13,10 +13,10 @@ namespace ModFirmWare
 
 namespace KitchenClock
 {
-  class TempController : public ModFirmWare::IdleableController, protected ControlUnit
+  class TempMainController : public ModFirmWare::IdleableController, protected ControlUnit
   {
   public:
-    TempController(ModFirmWare::Controller *idleController,
+    TempMainController(ModFirmWare::Controller *idleController,
                    ModFirmWare::RotaryEncoder *rotaryEncoder,
                    ModFirmWare::GPIOButton *rotaryButton,
                    ModFirmWare::GPIOButton *modeButton,
@@ -39,7 +39,7 @@ namespace KitchenClock
     void onAnyEvent();
 
   private:
-    TempRegion region;
+    TempMainRegion region;
     ModFirmWare::Mqtt* mqtt;
     bool calibration;
 

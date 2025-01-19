@@ -1,4 +1,4 @@
-#include "tempcontroller.h"
+#include "tempmaincontroller.h"
 #include "roteryencoder.h"
 #include "gpiobutton.h"
 #include "tftdisplay.h"
@@ -10,7 +10,7 @@ using namespace KitchenClock;
 
 #define LOGTAG "tempctrl"
 
-TempController::TempController(Controller *idleController,
+TempMainController::TempMainController(Controller *idleController,
                                RotaryEncoder *rotaryEncoder,
                                GPIOButton *rotaryButton,
                                GPIOButton *modeButton,
@@ -26,11 +26,11 @@ TempController::TempController(Controller *idleController,
 {
 }
 
-void TempController::activate()
+void TempMainController::activate()
 //****************************************************************************************
 {
   IdleableController::activate();
-  logger->debug(LOGTAG, "TempController activated");
+  logger->debug(LOGTAG, "TempMainController activated");
 
   onTempUpdate();
   region.forceupdate();
@@ -43,31 +43,31 @@ void TempController::activate()
                          { this->onTempUpdate(); });
 }
 
-void TempController::loop()
+void TempMainController::loop()
 //****************************************************************************************
 {
   IdleableController::loop();
 }
 
-void TempController::deactivate()
+void TempMainController::deactivate()
 //****************************************************************************************
 {
-  logger->debug(LOGTAG, "TempController deactivated");
+  logger->debug(LOGTAG, "TempMainController deactivated");
   display->unregisterRegion(&region);
   IdleableController::deactivate();
 }
 
-void TempController::onRotaryCw(long counter)
+void TempMainController::onRotaryCw(long counter)
 //****************************************************************************************
 {
 }
 
-void TempController::onRotaryCCw(long counter)
+void TempMainController::onRotaryCCw(long counter)
 //****************************************************************************************
 {
 }
 
-void TempController::onRotaryClick(const uint16_t state, Buttons::click_t type)
+void TempMainController::onRotaryClick(const uint16_t state, Buttons::click_t type)
 //****************************************************************************************
 {
   logger->debug(LOGTAG, "Button press: %d - %s", state, (Buttons::click_t::LONG == type) ? "long" : "normal");
@@ -78,13 +78,13 @@ void TempController::onRotaryClick(const uint16_t state, Buttons::click_t type)
   }
 }
 
-void TempController::onModeClick(const uint16_t state, Buttons::click_t type)
+void TempMainController::onModeClick(const uint16_t state, Buttons::click_t type)
 //****************************************************************************************
 {
   gotoPrev();
 }
 
-void TempController::onTempUpdate()
+void TempMainController::onTempUpdate()
 //****************************************************************************************
 {
   float r1 = ntcProbe1->getResistance();
@@ -115,13 +115,13 @@ void TempController::onTempUpdate()
   }
 }
 
-void TempController::onAnyEvent()
+void TempMainController::onAnyEvent()
 //****************************************************************************************
 {
   watchdog();
 }
 
-void TempController::sendResistanceTemperature(uint8_t ix, float t, float r)
+void TempMainController::sendResistanceTemperature(uint8_t ix, float t, float r)
 //****************************************************************************************
 {
   char msg[120];
