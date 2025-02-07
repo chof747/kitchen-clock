@@ -12,6 +12,9 @@
 #define ADC_00_DRV    8  // Pin driving 3v3 line for ADC 0 (to prevent termister overheat)
 #define ADC_01_DRV    9  // Pin driving 3v3 line for ADC 1 (to prevent termister overheat)
 
+#define PRB_00_CHL    0  // ADC channel of the first probe
+#define PRB_01_CHL    3  // ADC channel of the third probe
+
 #define MODE_BTN      0  // Mode button pin
 #define REN_BTN      10  // Rotary ENcoder click button pin
 #define REN_DAT      11  // Rotery ENcoder data line
@@ -67,6 +70,8 @@
 #ifndef LOGSPEED
 #define LOGSPEED 115200
 #endif
+
+#define NUM_PROBES 2
 
 //NTC parameters for {const_prefix}
 #define NTC1_ALPHA 0.0006036149946851701f

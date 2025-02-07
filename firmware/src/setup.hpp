@@ -14,7 +14,7 @@
 #include "roteryencoder.h"
 #include "powermanagement.h"
 #include "ads1115.h"
-#include "ntcsensor.h"
+#include "tempprobe.h"
 #include "servo.h"
 #include "wlan.h"
 #include "mqtt.h"
@@ -52,15 +52,22 @@ ModFirmWare::GPIOButton rotaryButton(REN_BTN, INPUT_PULLUP, true);
 ModFirmWare::PowerManagement powerMgmt(CHG_IND, RDY_IND);
 ModFirmWare::RotaryEncoder encoder(REN_CLK, REN_DAT, 0, 100);
 
+#define SET_ADC_CHANNEL(ix)                                                     \
+(ix == PRB_00_CHL)                                                              \
+  ? ADC_00_DRV                                                                  \
+  : (ix == PRB_01_CHL)                                                          \
+    ? ADC_01_DRV                                                                \
+    : ModFirmWare::Ads1115Sensor::CHANNEL_NOT_USED           
+
 ModFirmWare::Ads1115Sensor::channels_t adcChannels = {
-    ADC_00_DRV,
-    ModFirmWare::Ads1115Sensor::CHANNEL_NOT_USED,
-    ModFirmWare::Ads1115Sensor::CHANNEL_NOT_USED,
-    ADC_01_DRV};
+    SET_ADC_CHANNEL(0),
+    SET_ADC_CHANNEL(1),
+    SET_ADC_CHANNEL(2),
+    SET_ADC_CHANNEL(3)};
 ModFirmWare::Ads1115Sensor adsSensor(adcChannels, ADC_REF_VOLTAGE, ADC_R_FIXED);
 
-ModFirmWare::NTCSensor ntcProbe1(&adsSensor, 0, NTC1_ALPHA, NTC1_BETA, NTC1_GAMMA);
-ModFirmWare::NTCSensor ntcProbe2(&adsSensor, 3, NTC2_ALPHA, NTC2_BETA, NTC2_GAMMA);
+KitchenClock::TempProbe ntcProbe1(&adsSensor, PRB_00_CHL, NTC1_ALPHA, NTC1_BETA, NTC1_GAMMA);
+KitchenClock::TempProbe ntcProbe2(&adsSensor, PRB_01_CHL, NTC2_ALPHA, NTC2_BETA, NTC2_GAMMA);
 
 /*******************************************************************************
  * 
@@ -102,6 +109,8 @@ namespace KitchenClock
     app.addComponent(&rotaryButton);
 
     app.addComponent(&adsSensor);
+    app.addComponent(&ntcProbe1);
+    app.addComponent(&ntcProbe2);
   }
 
   KitchenClock::StartRegion* setupDisplay()
