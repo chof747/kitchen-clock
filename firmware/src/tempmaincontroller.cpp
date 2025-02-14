@@ -1,9 +1,11 @@
 #include "tempmaincontroller.h"
+#include "tempmonitorcontroller.h"
 #include "roteryencoder.h"
 #include "gpiobutton.h"
 #include "tftdisplay.h"
-#include "ntcsensor.h"
+#include "tempprobe.h"
 #include "mqtt.h"
+#include "config.h"
 
 using namespace ModFirmWare;
 using namespace KitchenClock;
@@ -14,8 +16,8 @@ TempMainController::TempMainController(Controller *idleController,
                                RotaryEncoder *rotaryEncoder,
                                GPIOButton *rotaryButton,
                                GPIOButton *modeButton,
-                               NTCSensor *ntc1,
-                               NTCSensor *ntc2,
+                               TempProbe *ntc1,
+                               TempProbe *ntc2,
                                ModFirmWare::Mqtt *mqtt,
                                TFTDisplay *display,
                                DisplayRegion::window_t window)
@@ -24,16 +26,18 @@ TempMainController::TempMainController(Controller *idleController,
       ControlUnit(rotaryEncoder, rotaryButton, modeButton, display), region(display, window), 
       calibration(false), mqtt(mqtt), ntcProbe1(ntc1), ntcProbe2(ntc2)
 {
+  region.setProbe(0, ntc1);
+  region.setProbe(1, ntc2);
+  setIdlePeriod(DISPLAY_IDLE_TURN_OFF_TIME);
 }
 
 void TempMainController::activate()
 //****************************************************************************************
 {
   IdleableController::activate();
-  logger->debug(LOGTAG, "TempMainController activated");
 
   onTempUpdate();
-  region.forceupdate();
+  region.triggerUpdate();
   display->registerRegion(&region, true);
 
   takeOverControls();
@@ -52,26 +56,32 @@ void TempMainController::loop()
 void TempMainController::deactivate()
 //****************************************************************************************
 {
-  logger->debug(LOGTAG, "TempMainController deactivated");
   display->unregisterRegion(&region);
+  region.unselectProbes();
   IdleableController::deactivate();
 }
 
 void TempMainController::onRotaryCw(long counter)
 //****************************************************************************************
 {
+  region.selectNextProbe();
 }
 
 void TempMainController::onRotaryCCw(long counter)
 //****************************************************************************************
 {
+  region.selectPrevProbe();
 }
 
 void TempMainController::onRotaryClick(const uint16_t state, Buttons::click_t type)
 //****************************************************************************************
 {
-  logger->debug(LOGTAG, "Button press: %d - %s", state, (Buttons::click_t::LONG == type) ? "long" : "normal");
-  if (Buttons::click_t::LONG == type)
+  if ((Buttons::click_t::SINGLE == type) && (-1 < region.getSelectedProbeIx()))
+  {
+    monitor->setTempProbe( (0 == region.getSelectedProbeIx()) ? ntcProbe1 : ntcProbe2);
+    monitor->activate();
+  }
+  else if (Buttons::click_t::LONG == type)
   {
     calibration = !calibration;
     region.enableCalibrationMode(calibration);
@@ -87,27 +97,7 @@ void TempMainController::onModeClick(const uint16_t state, Buttons::click_t type
 void TempMainController::onTempUpdate()
 //****************************************************************************************
 {
-  float r1 = ntcProbe1->getResistance();
-  float r2 = ntcProbe2->getResistance();
-
-  float t1 = ntcProbe1->getTemperatureC();
-  float t2 = ntcProbe2->getTemperatureC();
-
-  region.setResistance1(r1);
-  region.setResistance2(r2);
-
-  region.setTemperature1(t1);
-  region.setTemperature2(t2);
-
-  if (MAXFLOAT > r1)
-  {
-    sendResistanceTemperature(1, t1, r1);
-  }
-
-  if (MAXFLOAT > r2)
-  {
-    sendResistanceTemperature(2, t2, r2);
-  }
+  region.triggerUpdate();
 
   if (calibration)
   {
@@ -119,6 +109,12 @@ void TempMainController::onAnyEvent()
 //****************************************************************************************
 {
   watchdog();
+}
+
+void TempMainController::setMonitorController(TempMonitorController *monitor)
+//****************************************************************************************
+{
+  this->monitor = monitor;
 }
 
 void TempMainController::sendResistanceTemperature(uint8_t ix, float t, float r)

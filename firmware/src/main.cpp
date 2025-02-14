@@ -11,6 +11,7 @@
 #include "statuscontroller.h"
 #include "timercontroller.h"
 #include "tempmaincontroller.h"
+#include "tempmonitorcontroller.h"
 #include "regions/statusregion.h"
 
 #define LOGTAG "main"
@@ -18,6 +19,7 @@
 KitchenClock::StatusController statusController(&powerMgmt, &wifi, &mqttClient, &display, {0, 0, 160, 16});
 KitchenClock::TimerController timerController(&idleController, &encoder, &rotaryButton, &modeButton, &display, &mtimer, &clock_servo); 
 KitchenClock::TempMainController tempMainController(&idleController, &encoder, &rotaryButton, &modeButton, &ntcProbe1, &ntcProbe2, &mqttClient, &display, {0, 16, 160, 112});
+KitchenClock::TempMonitorController tempMonitorController(&idleController, &encoder, &rotaryButton, &modeButton, &mqttClient, &display, &clock_servo, {0, 16, 160, 122});
 ModFirmWare::IconMenuController mainMenu(&encoder, &rotaryButton, &modeButton, &display, {0, 16, 160, 112}, &idleController);
 
 
@@ -54,6 +56,8 @@ void setup()
   mainMenu.setDimensions(40, 40, 25, 2, 10);
 
   app.registerController(&tempMainController, &mainMenu);
+  app.registerController(&tempMonitorController, &tempMainController);
+  tempMainController.setMonitorController(&tempMonitorController);
   app.registerController(&timerController, &mainMenu);
   app.registerController(&idleController);
   app.registerController(&mainMenu);

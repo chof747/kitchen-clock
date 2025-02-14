@@ -86,7 +86,7 @@
 // TODO: Configs that should go later into a config file on the flash memory
 
 #define CONTROLLER_IDLE_TIME 15 IN_SECONDS
-#define DISPLAY_IDLE_TURN_OFF_TIME 25 IN_SECONDS
+#define DISPLAY_IDLE_TURN_OFF_TIME 60 IN_SECONDS
 #define ESP_IDLE_DEEP_SLEEP_TIME 120 IN_SECONDS
 
 

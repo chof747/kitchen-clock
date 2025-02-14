@@ -2,6 +2,7 @@
 #define TEMPREGION_H
 
 #include "display_region.h"
+#include "config.h"
 
 namespace ModFirmWare
 {
@@ -10,6 +11,7 @@ namespace ModFirmWare
 
 namespace KitchenClock
 {
+  class TempProbe;
 
   class TempMainRegion : public ModFirmWare::DisplayRegion
   {
@@ -18,29 +20,28 @@ namespace KitchenClock
 
     void updateCanvas() override;
 
-    void setTemperature1(const float temp);
-    void setTemperature2(const float temp);
-    void setResistance1(const float r);
-    void setResistance2(const float r);
-    void forceupdate() { newvalues = true; }
+    void setProbe(uint ix, TempProbe* probe);
+    void triggerUpdate() { newvalues = true; }
 
     void enableCalibrationMode(const bool calibration); 
+    inline const int getSelectedProbeIx() const { return selectedProbeIx; } 
+
+    int selectNextProbe();
+    int selectPrevProbe();
+    void unselectProbes();
 
   protected:
     bool isUpdated() const;
 
   private:
-    float temp1, temp2, r1, r2;
+    TempProbe* probes[NUM_PROBES];
     bool newvalues;
     bool calibration;
+    int selectedProbeIx;
 
-    float setValueIfNew(const float oldvalue, const float newvalue);
-
-
-    void printTempBlock(float t, float r, int ix);
-    void printCalibrationBlock(float t, float r, int ix);
-
-    int printBlock(const char* buffer, bool large, int x, int y, bool withDegree, const char* unit = "C");
+    void printTempBlock(uint ix);
+    void printCalibrationBlock(uint ix);
+    const int checkIfProbeCanBeSelected(const int pix);
   };
 }
 

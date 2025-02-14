@@ -26,6 +26,7 @@ void StatusController::activate()
 void StatusController::deactivate()
 //*****************************************************************************
 {
+  Controller::deactivate();
   display->unregisterRegion(&region);
 }
 

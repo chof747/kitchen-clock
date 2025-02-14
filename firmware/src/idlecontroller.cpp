@@ -15,7 +15,7 @@ using namespace ModFirmWare;
 
 IdleController::IdleController(WLan *wifi, TFTDisplay *display, Servo *clockServo, time_t deepSleepTime,
                                RotaryEncoder *rotaryEncoder, GPIOButton *rotaryButton, GPIOButton *modeButton)
-    : wifi(wifi), clockServo(clockServo), timeToDeepSleep(deepSleepTime), idlingStartTime(0),
+    : Controller(), wifi(wifi), clockServo(clockServo), timeToDeepSleep(deepSleepTime), idlingStartTime(0),
       ControlUnit(rotaryEncoder, rotaryButton, modeButton, display)
 //****************************************************************************************
 {
@@ -41,6 +41,7 @@ void IdleController::loop()
 void IdleController::deactivate()
 //****************************************************************************************
 {
+  Controller::deactivate();
 }
 
 void IdleController::onRotaryCw(long counter)

@@ -7,12 +7,13 @@
 
 namespace ModFirmWare
 {
-  class NTCSensor;
   class Mqtt;
 };
 
 namespace KitchenClock
 {
+  class TempProbe;
+  class TempMonitorController;
   class TempMainController : public ModFirmWare::IdleableController, protected ControlUnit
   {
   public:
@@ -20,8 +21,8 @@ namespace KitchenClock
                    ModFirmWare::RotaryEncoder *rotaryEncoder,
                    ModFirmWare::GPIOButton *rotaryButton,
                    ModFirmWare::GPIOButton *modeButton,
-                   ModFirmWare::NTCSensor* ntc1,
-                   ModFirmWare::NTCSensor* ntc2,
+                   TempProbe* ntc1,
+                   TempProbe* ntc2,
                    ModFirmWare::Mqtt* mqtt,
                    ModFirmWare::TFTDisplay *display,
                    ModFirmWare::DisplayRegion::window_t window);
@@ -29,6 +30,8 @@ namespace KitchenClock
     void activate() override;
     void loop() override;
     void deactivate() override;
+
+    void setMonitorController(TempMonitorController* monitor);
 
   protected:
     void onRotaryCw(long counter);
@@ -43,8 +46,9 @@ namespace KitchenClock
     ModFirmWare::Mqtt* mqtt;
     bool calibration;
 
-    ModFirmWare::NTCSensor* ntcProbe1;
-    ModFirmWare::NTCSensor* ntcProbe2;
+    TempProbe* ntcProbe1;
+    TempProbe* ntcProbe2;
+    TempMonitorController* monitor;
 
     void sendResistanceTemperature(uint8_t ix, float t, float r);
 
